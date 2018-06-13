@@ -420,10 +420,29 @@ enum LineStyle : Int {
 			textStyle = UIFontTextStyle.footnote
 			attributes[NSAttributedStringKey.foregroundColor] = h6.color
 		default:
-			fontName = body.fontName
-			fontSize = body.fontSize
 			textStyle = UIFontTextStyle.body
-			attributes[NSAttributedStringKey.foregroundColor] = body.color
+			switch style {
+				case .bold:
+					fontName = bold.fontName
+					fontSize = bold.fontSize
+					attributes[NSAttributedStringKey.foregroundColor] = bold.color
+				case .italic:
+					fontName = italic.fontName
+					fontSize = italic.fontSize
+					attributes[NSAttributedStringKey.foregroundColor] = italic.color
+				case .code:
+					fontName = code.fontName
+					fontSize = code.fontSize
+					attributes[NSAttributedStringKey.foregroundColor] = code.color
+				case .link:
+					fontName = link.fontName
+					fontSize = link.fontSize
+					attributes[NSAttributedStringKey.foregroundColor] = link.color
+				default:
+					fontName = body.fontName
+					fontSize = body.fontSize
+					attributes[NSAttributedStringKey.foregroundColor] = body.color
+			}
 			break
 		}
 		
